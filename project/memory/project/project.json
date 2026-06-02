@@ -12,7 +12,7 @@
     {
       "name": "react",
       "version": "^18.0.0",
-      "purpose": "Frontend UI library"
+      "purpose": "Frontend library"
     },
     {
       "name": "react-dom",
@@ -22,17 +22,12 @@
     {
       "name": "@supabase/supabase-js",
       "version": "^2.38.0",
-      "purpose": "Supabase client SDK"
+      "purpose": "Supabase client for database and auth"
     },
     {
       "name": "@supabase/ssr",
       "version": "^0.0.10",
-      "purpose": "Supabase server-side rendering"
-    },
-    {
-      "name": "tailwindcss",
-      "version": "^3.3.0",
-      "purpose": "CSS styling framework"
+      "purpose": "Supabase server-side rendering support"
     }
   ],
   "externalIntegrations": [
@@ -47,10 +42,10 @@
     }
   ],
   "coreUserFlows": [
-    "A team lead creates a note during or after a meeting, captures key decisions, assigns action items to teammates.",
-    "Team members search, filter, and track progress on action items.",
-    "Users sign up creating a new team or join an existing team via invite.",
-    "Team Leads manage team membership, roles, and team identity."
+    "A team lead creates a note during or after a meeting, captures key decisions, assigns action items to teammates",
+    "Team members search, filter, and track progress on action items across projects",
+    "Team leads manage team membership by inviting new members and assigning roles",
+    "Users organize notes by projects and view activity timeline of recent team changes"
   ],
   "outOfScope": [
     "Multi-team membership",
@@ -65,44 +60,40 @@
   "dataModel": [
     {
       "entity": "users",
-      "purpose": "Stores user account information with team membership and role",
+      "purpose": "Stores team members with authentication and role information",
       "keyFields": [
         "email",
-        "password",
-        "team",
         "role"
       ]
     },
     {
       "entity": "teams",
-      "purpose": "Stores team information and serves as data scoping boundary",
+      "purpose": "Stores team information and identity",
       "keyFields": [
         "name"
       ]
     },
     {
       "entity": "projects",
-      "purpose": "Containers for organizing notes within a team",
+      "purpose": "Stores project containers for organizing notes",
       "keyFields": [
         "name",
-        "status",
-        "team"
+        "status"
       ]
     },
     {
       "entity": "notes",
-      "purpose": "Core content units capturing meeting discussions and decisions",
+      "purpose": "Stores meeting notes with rich text content and metadata",
       "keyFields": [
         "title",
         "content",
-        "project",
         "author",
-        "last_editor"
+        "project"
       ]
     },
     {
       "entity": "action_items",
-      "purpose": "Tasks extracted from notes that can be assigned and tracked",
+      "purpose": "Stores tasks extracted from notes with assignment tracking",
       "keyFields": [
         "description",
         "assignee",
@@ -112,10 +103,11 @@
     }
   ],
   "crossCuttingPrinciples": [
-    "All data access is scoped to the user's team with no cross-team leakage.",
-    "Three-tier authorization model with Viewer, Contributor, and Team Lead roles with increasing permissions.",
-    "A team must always have at least one Team Lead.",
-    "Users cannot exist without belonging to a team."
+    "All data access is scoped to the user's team with no cross-team leakage",
+    "Three-tier authorization model with Viewer, Contributor, and Team Lead roles with increasing permissions",
+    "Single-team membership model where users belong to exactly one team",
+    "Team must always have at least one Team Lead for management continuity",
+    "Rich text support limited to headings, bold, italic, strikethrough, and lists only"
   ],
-  "specSummary": "Orbit Notes is a team workspace designed to help small teams capture meeting notes, track decisions, and manage action items. The application uses a single-team model where each user belongs to exactly one team and all data is scoped accordingly. The core workflow centers around creating notes within projects, extracting actionable tasks, and assigning them to team members for tracking. The system implements a three-tier authorization model with Viewers having read-only access, Contributors able to create and edit content, and Team Leads having full administrative capabilities including team management and project oversight. Key features include rich text note editing with basic formatting, project-based organization, action item assignment and completion tracking, keyword search across all team notes, and an activity timeline showing recent team activity. The technical foundation uses Next.js 14 with App Router for the frontend, Supabase for authentication and PostgreSQL database backend, and Tailwind CSS for styling. The application deliberately excludes multi-team functionality, file attachments, real-time collaborative editing, notifications, and mobile native apps in favor of a focused, lightweight experience optimized for single-team collaboration and meeting follow-up workflows."
+  "specSummary": "Orbit Notes is a team collaboration tool designed to transform meeting conversations into actionable outcomes through structured note-taking and task management. The application serves small teams who need to capture meeting discussions, document key decisions, and track follow-up actions in a centralized workspace. Built on Next.js 14 with Supabase backend, the platform implements a three-tier authorization system where Viewers have read-only access, Contributors can create and edit content, and Team Leads manage team membership and projects. The core workflow centers around project-based note organization, where team leads create rich-text notes during meetings, extract actionable items that can be assigned to teammates, and maintain visibility into progress through search capabilities and activity timelines. The system enforces strict team-scoped data isolation, ensuring users only access information within their organization. Key technical constraints include single-team membership, responsive web-only interface, and deliberate exclusion of real-time collaborative editing, file attachments, and notification systems to maintain simplicity. The application prioritizes fast note creation, comprehensive task tracking, and reliable search performance for teams managing up to 1,000 notes, positioning itself as a lightweight alternative to complex project management tools."
 }

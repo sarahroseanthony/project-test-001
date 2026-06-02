@@ -3,78 +3,78 @@
   "fileTree": [
     {
       "path": "package.json",
-      "purpose": "Next.js project dependencies and scripts configuration",
+      "purpose": "Next.js 14 app with Supabase client libraries and TypeScript",
       "isEmpty": false
     },
     {
       "path": "tsconfig.json",
-      "purpose": "TypeScript compiler configuration",
+      "purpose": "TypeScript config with path aliases (@/*) for clean imports",
       "isEmpty": false
     },
     {
       "path": "next.config.js",
-      "purpose": "Next.js framework configuration",
+      "purpose": "Minimal Next.js configuration",
       "isEmpty": false
     },
     {
       "path": "postcss.config.js",
-      "purpose": "PostCSS configuration for Tailwind CSS",
+      "purpose": "PostCSS setup for Tailwind CSS",
       "isEmpty": false
     },
     {
       "path": "tailwind.config.js",
-      "purpose": "Tailwind CSS configuration",
+      "purpose": "Tailwind CSS configuration for src/ directory",
       "isEmpty": false
     },
     {
       "path": "src/app/layout.tsx",
-      "purpose": "Root layout component with metadata and providers",
+      "purpose": "Root layout with Inter font and metadata",
       "isEmpty": false
     },
     {
       "path": "src/app/globals.css",
-      "purpose": "Global CSS styles with Tailwind directives",
+      "purpose": "Tailwind CSS imports and base styles",
       "isEmpty": false
     },
     {
       "path": "src/app/page.tsx",
-      "purpose": "Landing page component",
-      "isEmpty": true
+      "purpose": "Landing page showcasing Orbit Notes with sign-up/sign-in CTAs",
+      "isEmpty": false
     },
     {
       "path": ".env.example",
-      "purpose": "Environment variables template for Supabase configuration",
+      "purpose": "Supabase environment variables template",
       "isEmpty": false
     },
     {
       "path": "pr-docs/.gitkeep",
-      "purpose": "Placeholder for PR documentation directory",
-      "isEmpty": false
+      "purpose": "Placeholder file for documentation",
+      "isEmpty": true
     },
     {
       "path": "memory/.gitkeep",
-      "purpose": "Placeholder for memory directory",
-      "isEmpty": false
+      "purpose": "Placeholder file for memory storage",
+      "isEmpty": true
     },
     {
       "path": "memory/project/.gitkeep",
-      "purpose": "Placeholder for project memory directory",
-      "isEmpty": false
+      "purpose": "Placeholder file for project memory",
+      "isEmpty": true
     },
     {
       "path": "memory/task/.gitkeep",
-      "purpose": "Placeholder for task memory directory",
-      "isEmpty": false
+      "purpose": "Placeholder file for task memory",
+      "isEmpty": true
     },
     {
       "path": "memory/agent/.gitkeep",
-      "purpose": "Placeholder for agent memory directory",
-      "isEmpty": false
+      "purpose": "Placeholder file for agent memory",
+      "isEmpty": true
     },
     {
       "path": "memory/context/.gitkeep",
-      "purpose": "Placeholder for context memory directory",
-      "isEmpty": false
+      "purpose": "Placeholder file for context memory",
+      "isEmpty": true
     }
   ],
   "libraryExports": [],
@@ -84,7 +84,7 @@
       "path": "/",
       "file": "src/app/page.tsx",
       "httpMethods": null,
-      "isEmpty": true
+      "isEmpty": false
     }
   ],
   "databaseState": {
@@ -93,8 +93,28 @@
   },
   "intentionallyEmpty": [
     {
-      "file": "src/app/page.tsx",
-      "intendedPurpose": "Landing page component for the Orbit Notes application"
+      "file": "pr-docs/.gitkeep",
+      "intendedPurpose": "Documentation storage for pull request artifacts"
+    },
+    {
+      "file": "memory/.gitkeep",
+      "intendedPurpose": "Memory storage for agent coordination"
+    },
+    {
+      "file": "memory/project/.gitkeep",
+      "intendedPurpose": "Project-level memory storage"
+    },
+    {
+      "file": "memory/task/.gitkeep",
+      "intendedPurpose": "Task-level memory storage"
+    },
+    {
+      "file": "memory/agent/.gitkeep",
+      "intendedPurpose": "Agent-level memory storage"
+    },
+    {
+      "file": "memory/context/.gitkeep",
+      "intendedPurpose": "Context memory storage"
     }
   ]
 }
