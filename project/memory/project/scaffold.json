@@ -3,12 +3,12 @@
   "fileTree": [
     {
       "path": "package.json",
-      "purpose": "Project dependencies and scripts configuration",
+      "purpose": "Next.js project dependencies and scripts configuration",
       "isEmpty": false
     },
     {
       "path": "tsconfig.json",
-      "purpose": "TypeScript configuration with Next.js path mapping",
+      "purpose": "TypeScript compiler configuration",
       "isEmpty": false
     },
     {
@@ -23,7 +23,7 @@
     },
     {
       "path": "tailwind.config.js",
-      "purpose": "Tailwind CSS utility framework configuration",
+      "purpose": "Tailwind CSS configuration",
       "isEmpty": false
     },
     {
@@ -48,32 +48,32 @@
     },
     {
       "path": "pr-docs/.gitkeep",
-      "purpose": "Placeholder to maintain pr-docs directory structure",
+      "purpose": "Placeholder for PR documentation directory",
       "isEmpty": false
     },
     {
       "path": "memory/.gitkeep",
-      "purpose": "Placeholder to maintain memory directory structure",
+      "purpose": "Placeholder for memory directory",
       "isEmpty": false
     },
     {
       "path": "memory/project/.gitkeep",
-      "purpose": "Placeholder to maintain memory/project directory structure",
+      "purpose": "Placeholder for project memory directory",
       "isEmpty": false
     },
     {
       "path": "memory/task/.gitkeep",
-      "purpose": "Placeholder to maintain memory/task directory structure",
+      "purpose": "Placeholder for task memory directory",
       "isEmpty": false
     },
     {
       "path": "memory/agent/.gitkeep",
-      "purpose": "Placeholder to maintain memory/agent directory structure",
+      "purpose": "Placeholder for agent memory directory",
       "isEmpty": false
     },
     {
       "path": "memory/context/.gitkeep",
-      "purpose": "Placeholder to maintain memory/context directory structure",
+      "purpose": "Placeholder for context memory directory",
       "isEmpty": false
     }
   ],
@@ -94,7 +94,7 @@
   "intentionallyEmpty": [
     {
       "file": "src/app/page.tsx",
-      "intendedPurpose": "Landing page component for Orbit Notes application"
+      "intendedPurpose": "Landing page component for the Orbit Notes application"
     }
   ]
 }
