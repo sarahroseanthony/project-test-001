@@ -3,78 +3,78 @@
   "fileTree": [
     {
       "path": "package.json",
-      "purpose": "Next.js 14 app with Supabase client libraries and TypeScript",
+      "purpose": "Project dependencies and scripts configuration",
       "isEmpty": false
     },
     {
       "path": "tsconfig.json",
-      "purpose": "TypeScript config with path aliases (@/*) for clean imports",
+      "purpose": "TypeScript configuration",
       "isEmpty": false
     },
     {
       "path": "next.config.js",
-      "purpose": "Minimal Next.js configuration",
+      "purpose": "Next.js configuration file",
       "isEmpty": false
     },
     {
       "path": "postcss.config.js",
-      "purpose": "PostCSS setup for Tailwind CSS",
+      "purpose": "PostCSS configuration for Tailwind",
       "isEmpty": false
     },
     {
       "path": "tailwind.config.js",
-      "purpose": "Tailwind CSS configuration for src/ directory",
+      "purpose": "Tailwind CSS configuration",
       "isEmpty": false
     },
     {
       "path": "src/app/layout.tsx",
-      "purpose": "Root layout with Inter font and metadata",
+      "purpose": "Root layout component",
       "isEmpty": false
     },
     {
       "path": "src/app/globals.css",
-      "purpose": "Tailwind CSS imports and base styles",
+      "purpose": "Global styles and Tailwind directives",
       "isEmpty": false
     },
     {
       "path": "src/app/page.tsx",
-      "purpose": "Landing page showcasing Orbit Notes with sign-up/sign-in CTAs",
-      "isEmpty": false
+      "purpose": "Landing page component",
+      "isEmpty": true
     },
     {
       "path": ".env.example",
-      "purpose": "Supabase environment variables template",
+      "purpose": "Environment variables template",
       "isEmpty": false
     },
     {
       "path": "pr-docs/.gitkeep",
-      "purpose": "Placeholder file for documentation",
-      "isEmpty": true
+      "purpose": "Placeholder to maintain PR documentation directory",
+      "isEmpty": false
     },
     {
       "path": "memory/.gitkeep",
-      "purpose": "Placeholder file for memory storage",
-      "isEmpty": true
+      "purpose": "Placeholder to maintain memory directory",
+      "isEmpty": false
     },
     {
       "path": "memory/project/.gitkeep",
-      "purpose": "Placeholder file for project memory",
-      "isEmpty": true
+      "purpose": "Placeholder to maintain project memory directory",
+      "isEmpty": false
     },
     {
       "path": "memory/task/.gitkeep",
-      "purpose": "Placeholder file for task memory",
-      "isEmpty": true
+      "purpose": "Placeholder to maintain task memory directory",
+      "isEmpty": false
     },
     {
       "path": "memory/agent/.gitkeep",
-      "purpose": "Placeholder file for agent memory",
-      "isEmpty": true
+      "purpose": "Placeholder to maintain agent memory directory",
+      "isEmpty": false
     },
     {
       "path": "memory/context/.gitkeep",
-      "purpose": "Placeholder file for context memory",
-      "isEmpty": true
+      "purpose": "Placeholder to maintain context memory directory",
+      "isEmpty": false
     }
   ],
   "libraryExports": [],
@@ -84,7 +84,7 @@
       "path": "/",
       "file": "src/app/page.tsx",
       "httpMethods": null,
-      "isEmpty": false
+      "isEmpty": true
     }
   ],
   "databaseState": {
@@ -93,28 +93,8 @@
   },
   "intentionallyEmpty": [
     {
-      "file": "pr-docs/.gitkeep",
-      "intendedPurpose": "Documentation storage for pull request artifacts"
-    },
-    {
-      "file": "memory/.gitkeep",
-      "intendedPurpose": "Memory storage for agent coordination"
-    },
-    {
-      "file": "memory/project/.gitkeep",
-      "intendedPurpose": "Project-level memory storage"
-    },
-    {
-      "file": "memory/task/.gitkeep",
-      "intendedPurpose": "Task-level memory storage"
-    },
-    {
-      "file": "memory/agent/.gitkeep",
-      "intendedPurpose": "Agent-level memory storage"
-    },
-    {
-      "file": "memory/context/.gitkeep",
-      "intendedPurpose": "Context memory storage"
+      "file": "src/app/page.tsx",
+      "intendedPurpose": "Landing page component waiting for implementation"
     }
   ]
 }

@@ -1,18 +1,18 @@
 {
   "schemaVersion": "cofabric.memory.project.v2",
   "name": "Orbit Notes",
-  "oneLineDescription": "A lightweight team workspace for capturing meeting notes, decisions, and action items",
+  "oneLineDescription": "A lightweight team workspace for capturing meeting notes, decisions, and action items.",
   "whatItIs": "Orbit Notes is a lightweight team workspace for capturing meeting notes, decisions, and action items. It helps small teams turn messy conversations into clear next steps. The primary use case is a team lead creates a note during or after a meeting, captures key decisions, assigns action items to teammates, and everyone can later search, filter, and track progress.",
   "stack": [
     {
       "name": "next",
       "version": "^14.0.0",
-      "purpose": "React framework with App Router"
+      "purpose": "Frontend framework"
     },
     {
       "name": "react",
       "version": "^18.0.0",
-      "purpose": "Frontend library"
+      "purpose": "UI library"
     },
     {
       "name": "react-dom",
@@ -22,12 +22,12 @@
     {
       "name": "@supabase/supabase-js",
       "version": "^2.38.0",
-      "purpose": "Supabase client for database and auth"
+      "purpose": "Supabase client"
     },
     {
       "name": "@supabase/ssr",
       "version": "^0.0.10",
-      "purpose": "Supabase server-side rendering support"
+      "purpose": "Supabase SSR utilities"
     }
   ],
   "externalIntegrations": [
@@ -42,10 +42,10 @@
     }
   ],
   "coreUserFlows": [
-    "A team lead creates a note during or after a meeting, captures key decisions, assigns action items to teammates",
-    "Team members search, filter, and track progress on action items across projects",
-    "Team leads manage team membership by inviting new members and assigning roles",
-    "Users organize notes by projects and view activity timeline of recent team changes"
+    "A team lead creates a note during or after a meeting, captures key decisions, assigns action items to teammates.",
+    "Team members search, filter, and track progress on action items.",
+    "Users sign up creating a new team or join an existing team via invite.",
+    "Team leads manage team membership by inviting new members and changing roles."
   ],
   "outOfScope": [
     "Multi-team membership",
@@ -60,15 +60,16 @@
   "dataModel": [
     {
       "entity": "users",
-      "purpose": "Stores team members with authentication and role information",
+      "purpose": "Stores team member accounts with authentication and role information",
       "keyFields": [
         "email",
+        "password",
         "role"
       ]
     },
     {
       "entity": "teams",
-      "purpose": "Stores team information and identity",
+      "purpose": "Stores team workspace information and settings",
       "keyFields": [
         "name"
       ]
@@ -88,26 +89,28 @@
         "title",
         "content",
         "author",
-        "project"
+        "project",
+        "created_date",
+        "last_editor",
+        "last_updated"
       ]
     },
     {
       "entity": "action_items",
-      "purpose": "Stores tasks extracted from notes with assignment tracking",
+      "purpose": "Stores tasks extracted from notes with assignment and completion tracking",
       "keyFields": [
         "description",
         "assignee",
         "status",
-        "note"
+        "parent_note"
       ]
     }
   ],
   "crossCuttingPrinciples": [
-    "All data access is scoped to the user's team with no cross-team leakage",
-    "Three-tier authorization model with Viewer, Contributor, and Team Lead roles with increasing permissions",
-    "Single-team membership model where users belong to exactly one team",
-    "Team must always have at least one Team Lead for management continuity",
-    "Rich text support limited to headings, bold, italic, strikethrough, and lists only"
+    "Three roles with increasing permissions: Viewer (read-only), Contributor (create/edit), Team Lead (full management).",
+    "Single-team workspaces where users belong to exactly one team and all data access is scoped to the user's team.",
+    "A team must always have at least one Team Lead and cannot exist without members.",
+    "Rich text support is limited to headings, bold, italic, strikethrough, bullet lists, and numbered lists only."
   ],
-  "specSummary": "Orbit Notes is a team collaboration tool designed to transform meeting conversations into actionable outcomes through structured note-taking and task management. The application serves small teams who need to capture meeting discussions, document key decisions, and track follow-up actions in a centralized workspace. Built on Next.js 14 with Supabase backend, the platform implements a three-tier authorization system where Viewers have read-only access, Contributors can create and edit content, and Team Leads manage team membership and projects. The core workflow centers around project-based note organization, where team leads create rich-text notes during meetings, extract actionable items that can be assigned to teammates, and maintain visibility into progress through search capabilities and activity timelines. The system enforces strict team-scoped data isolation, ensuring users only access information within their organization. Key technical constraints include single-team membership, responsive web-only interface, and deliberate exclusion of real-time collaborative editing, file attachments, and notification systems to maintain simplicity. The application prioritizes fast note creation, comprehensive task tracking, and reliable search performance for teams managing up to 1,000 notes, positioning itself as a lightweight alternative to complex project management tools."
+  "specSummary": "Orbit Notes is a focused team collaboration tool designed to transform meeting conversations into actionable outcomes. Built on Next.js 14 with Supabase backend, it centers around a three-tier permission system where Viewers can read, Contributors can create and edit content, and Team Leads manage the workspace. The core workflow involves creating notes within projects, extracting action items from those notes, and tracking progress through completion. Each user belongs to exactly one team, ensuring clean data isolation and simplified access control. The platform supports rich text editing with basic formatting, keyword search across all team content, and an activity timeline showing recent team actions. Project-based organization helps teams categorize their notes logically, while the action item system enables assignment and tracking of tasks derived from meetings. Team Leads have additional privileges to manage membership, invite new users, and control project lifecycles. The system deliberately excludes complex features like real-time collaboration, file attachments, or multi-team membership to maintain simplicity and focus on the core use case of turning meeting discussions into clear next steps."
 }
