@@ -2,32 +2,32 @@
   "schemaVersion": "cofabric.memory.project.v2",
   "name": "Orbit Notes",
   "oneLineDescription": "A lightweight team workspace for capturing meeting notes, decisions, and action items",
-  "whatItIs": "Orbit Notes is a lightweight team workspace for capturing meeting notes, decisions, and action items. It helps small teams turn messy conversations into clear next steps. The primary use case is that a team lead creates a note during or after a meeting, captures key decisions, assigns action items to teammates, and everyone can later search, filter, and track progress.",
+  "whatItIs": "Orbit Notes is a lightweight team workspace for capturing meeting notes, decisions, and action items. It helps small teams turn messy conversations into clear next steps. The primary use case is a team lead creates a note during or after a meeting, captures key decisions, assigns action items to teammates, and everyone can later search, filter, and track progress.",
   "stack": [
-    {
-      "name": "next",
-      "version": "^14.0.4",
-      "purpose": "React framework with App Router"
-    },
     {
       "name": "react",
       "version": "^18.2.0",
-      "purpose": "UI library"
+      "purpose": "Frontend UI framework"
     },
     {
       "name": "react-dom",
       "version": "^18.2.0",
-      "purpose": "React DOM rendering"
+      "purpose": "React DOM bindings"
+    },
+    {
+      "name": "next",
+      "version": "^14.0.4",
+      "purpose": "Full-stack React framework"
     },
     {
       "name": "@supabase/supabase-js",
       "version": "^2.38.4",
-      "purpose": "Supabase client"
+      "purpose": "Supabase client library"
     },
     {
       "name": "@supabase/auth-helpers-nextjs",
       "version": "^0.8.7",
-      "purpose": "Supabase authentication helpers"
+      "purpose": "Supabase authentication helpers for Next.js"
     }
   ],
   "externalIntegrations": [
@@ -42,10 +42,10 @@
     }
   ],
   "coreUserFlows": [
-    "A team lead creates a note during or after a meeting, captures key decisions, assigns action items to teammates.",
-    "Team members search, filter, and track progress on action items assigned to them.",
-    "Team leads invite new members and manage roles (Viewer, Contributor, Team Lead) within their team.",
-    "All team members can view activity timeline to see recent note creation, edits, and task completion."
+    "A team lead creates a note during or after a meeting, captures key decisions, assigns action items to teammates",
+    "Team members search, filter, and track progress on action items",
+    "Users sign up creating a new team or join an existing team via invite",
+    "Team leads manage team membership including inviting new members and changing roles"
   ],
   "outOfScope": [
     "Multi-team membership",
@@ -59,24 +59,25 @@
   ],
   "dataModel": [
     {
+      "entity": "users",
+      "purpose": "Stores user accounts with email, password, and team membership",
+      "keyFields": [
+        "email",
+        "password",
+        "team",
+        "role"
+      ]
+    },
+    {
       "entity": "teams",
-      "purpose": "Stores team identity and metadata",
+      "purpose": "Stores team information and serves as the primary data scoping boundary",
       "keyFields": [
         "name"
       ]
     },
     {
-      "entity": "users",
-      "purpose": "Stores user accounts with team membership and roles",
-      "keyFields": [
-        "email",
-        "role",
-        "team"
-      ]
-    },
-    {
       "entity": "projects",
-      "purpose": "Stores project containers for organizing notes",
+      "purpose": "Containers for organizing notes within a team",
       "keyFields": [
         "name",
         "status",
@@ -85,7 +86,7 @@
     },
     {
       "entity": "notes",
-      "purpose": "Stores meeting notes with rich text content",
+      "purpose": "Core content units that capture meeting discussions, decisions, and context",
       "keyFields": [
         "title",
         "content",
@@ -98,7 +99,7 @@
     },
     {
       "entity": "action_items",
-      "purpose": "Stores tasks extracted from notes with assignment tracking",
+      "purpose": "Tasks extracted from notes that can be assigned and tracked",
       "keyFields": [
         "description",
         "assignee",
@@ -108,11 +109,11 @@
     }
   ],
   "crossCuttingPrinciples": [
-    "Three-tier role system (Viewer, Contributor, Team Lead) with increasing permissions enforced throughout the application.",
-    "All data access is strictly scoped to the user's team with no cross-team leakage.",
-    "A team must always have at least one Team Lead and users cannot exist without belonging to a team.",
-    "Rich text support is limited to headings, bold, italic, strikethrough, bullet lists, and numbered lists only.",
-    "Action items must belong to a note and notes must belong to a project (no orphan content)."
+    "All data access is scoped to the user's team with no cross-team leakage",
+    "Three-tier role-based authorization with Viewer, Contributor, and Team Lead permissions",
+    "A team must always have at least one Team Lead",
+    "Rich text support limited to headings, bold, italic, strikethrough, bullet lists, numbered lists",
+    "All features must work responsively on web browsers without requiring mobile-native apps"
   ],
-  "specSummary": "Orbit Notes is a team workspace designed to transform messy meeting conversations into actionable next steps. The application serves small teams who need to capture meeting notes, track decisions, and manage action items in a centralized location. Built on Next.js 14 with Supabase for authentication and data storage, the platform implements a three-tier permission system where Viewers have read-only access, Contributors can create and edit content, and Team Leads additionally manage team membership and projects. The core workflow involves creating notes within projects, extracting action items from those notes, assigning tasks to team members, and tracking completion status. Essential features include rich text note editing with basic formatting, project-based organization, keyword search across all content, and an activity timeline showing recent team activity. The application maintains strict data isolation where users belong to exactly one team and can only access their team's content. Technical constraints include limiting file uploads, real-time collaboration, and mobile native apps in favor of a focused responsive web experience. The platform prioritizes simplicity and speed, targeting teams that need structured note-taking without the complexity of enterprise collaboration tools."
+  "specSummary": "Orbit Notes is designed as a lightweight team workspace specifically for capturing meeting notes, decisions, and action items, with the goal of helping small teams convert messy conversations into clear next steps. The application uses a single-team membership model where users belong to exactly one team, with role-based access control spanning Viewer, Contributor, and Team Lead roles. The core workflow centers around project-based note organization, where team leads and contributors create notes with rich text formatting during or after meetings, extract action items that can be assigned to teammates, and track progress through completion. The platform includes keyword search across all notes, an activity timeline showing recent team activity, and comprehensive team management features for inviting members and managing roles. Built on Next.js 14 with Supabase handling authentication, database, and real-time subscriptions, the application deliberately excludes multi-team membership, file attachments, real-time collaborative editing, notifications, and mobile-native apps to maintain focus on its core use case. The technical architecture emphasizes data isolation at the team level, with strict role-based permissions ensuring appropriate access control across all features."
 }
