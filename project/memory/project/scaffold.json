@@ -3,17 +3,17 @@
   "fileTree": [
     {
       "path": "package.json",
-      "purpose": "Project dependencies and scripts configuration",
+      "purpose": "NPM package configuration with dependencies for Next.js, React, Supabase, and TypeScript",
       "isEmpty": false
     },
     {
       "path": "tsconfig.json",
-      "purpose": "TypeScript compiler configuration",
+      "purpose": "TypeScript configuration with Next.js and module resolution settings",
       "isEmpty": false
     },
     {
       "path": "next.config.js",
-      "purpose": "Next.js configuration",
+      "purpose": "Next.js framework configuration file",
       "isEmpty": false
     },
     {
@@ -23,57 +23,57 @@
     },
     {
       "path": "tailwind.config.js",
-      "purpose": "Tailwind CSS configuration",
+      "purpose": "Tailwind CSS configuration for styling framework",
       "isEmpty": false
     },
     {
       "path": "src/app/layout.tsx",
-      "purpose": "Root layout component with metadata and providers",
+      "purpose": "Root layout component with metadata and HTML structure",
       "isEmpty": false
     },
     {
       "path": "src/app/globals.css",
-      "purpose": "Global CSS styles including Tailwind directives",
+      "purpose": "Global CSS styles with Tailwind directives",
       "isEmpty": false
     },
     {
       "path": "src/app/page.tsx",
-      "purpose": "Landing page component",
+      "purpose": "Homepage landing page component",
       "isEmpty": true
     },
     {
       "path": ".env.example",
-      "purpose": "Environment variables template",
+      "purpose": "Environment variables template with Supabase configuration placeholders",
       "isEmpty": false
     },
     {
       "path": "pr-docs/.gitkeep",
-      "purpose": "Placeholder to maintain pr-docs directory structure",
+      "purpose": "Placeholder to maintain pr-docs directory in git",
       "isEmpty": false
     },
     {
       "path": "memory/.gitkeep",
-      "purpose": "Placeholder to maintain memory directory structure",
+      "purpose": "Placeholder to maintain memory directory in git",
       "isEmpty": false
     },
     {
       "path": "memory/project/.gitkeep",
-      "purpose": "Placeholder to maintain memory/project directory structure",
+      "purpose": "Placeholder to maintain memory/project directory in git",
       "isEmpty": false
     },
     {
       "path": "memory/task/.gitkeep",
-      "purpose": "Placeholder to maintain memory/task directory structure",
+      "purpose": "Placeholder to maintain memory/task directory in git",
       "isEmpty": false
     },
     {
       "path": "memory/agent/.gitkeep",
-      "purpose": "Placeholder to maintain memory/agent directory structure",
+      "purpose": "Placeholder to maintain memory/agent directory in git",
       "isEmpty": false
     },
     {
       "path": "memory/context/.gitkeep",
-      "purpose": "Placeholder to maintain memory/context directory structure",
+      "purpose": "Placeholder to maintain memory/context directory in git",
       "isEmpty": false
     }
   ],
@@ -94,7 +94,7 @@
   "intentionallyEmpty": [
     {
       "file": "src/app/page.tsx",
-      "intendedPurpose": "Landing page component with authentication flow integration"
+      "intendedPurpose": "Homepage landing page component with sign-in/sign-up flow"
     }
   ]
 }
