@@ -1,3 +1,6 @@
+# Dandela-managed workflow scaffold
+# Dandela-template-version: SETUP-HARDEN-003-v1
+# Dandela-managed-path: .github/workflows/ci.yml
 name: ci
 on:
   pull_request:
