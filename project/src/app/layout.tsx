@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Orbit Notes',
-  description: 'A lightweight team workspace for capturing meeting notes, decisions, and action items',
+  description: 'Lightweight team workspace for capturing meeting notes, decisions, and action items',
 }
 
 export default function RootLayout({
